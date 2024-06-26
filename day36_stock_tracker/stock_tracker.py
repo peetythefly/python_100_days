@@ -36,7 +36,7 @@ Low price of the day is ${quote["l"]}.
 Open price of the day is ${quote["o"]}.
 Previous close price was ${prev_price}.\n"""
     print(report)
-    # If there is a change in the previous close price by more than 5%, build a report and dump it to the dekstop.
+    # If there is a change in the previous close price by more than 5%, build a report and dump it to the desktop.
     if abs(percent) >= 1:
         with open(file=f"{auth.my_desktop}/StockAlert.txt", mode="a") as stock_file:
             stock_file.write(f"\n{report}\nLink to news:\n{news_url}")
