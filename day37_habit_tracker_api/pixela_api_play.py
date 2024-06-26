@@ -38,10 +38,9 @@ update_graph_params = {
     "unit": "Hours worked out"
 }
 
-# We want it to increase the hours worked out for today by 1 hour.
+# We want the logic where each time this script runs, it increases the hours worked out for today by 1 hour.
 # First we'll get the quantity that is currently there for today.
-# We only want to get the data if there's already a pixel in place for today.
-# If there's no existing pixel we set it to 0.
+# We only want to get the data if there's already a pixel in place for today, otherwise it's 0.
 if requests.get(url=update_endpoint, headers=headers):
     hours_today = requests.get(url=update_endpoint, headers=headers).json()
 else:
@@ -65,3 +64,15 @@ print(response.text)
 # response = requests.post(url=pixela_graph_endpoint, json=graph_params, headers=graph_headers)
 # print(response.text)
 
+
+# Update a value on the graph.
+# response = requests.put(url=update_endpoint, json=update_params, headers=update_headers)
+# print(response.text)
+
+# Update the graph from "days" to "Hours worked out".
+# response = requests.put(url=value_endpoint, json=update_graph_params, headers=graph_headers)
+# print(response.text)
+
+# Delete a pixel.
+# response = requests.delete(url=update_endpoint, headers=headers)
+# print(response.text)
